@@ -27,6 +27,18 @@ namespace BugTracker
 
             app.Run(async (context) =>
             {
+                var logger = new BugTracker();
+                try
+                {
+                    throw new ArgumentNullException();
+                    
+
+                }
+                catch (Exception e)
+                {
+                    logger.Log(e);
+                }
+                
                 await context.Response.WriteAsync("Hello World!");
             });
         }
